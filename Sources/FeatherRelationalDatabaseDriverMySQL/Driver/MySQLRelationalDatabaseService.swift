@@ -5,27 +5,27 @@
 //  Created by Tibor Bodecs on 03/12/2023.
 //
 
-import FeatherService
+import FeatherComponent
 import FeatherRelationalDatabase
 import SQLKit
 import MySQLKit
 @preconcurrency import AsyncKit
 
 @dynamicMemberLookup
-struct MySQLRelationalDatabaseService: RelationalDatabaseService {
+struct MySQLRelationalDatabaseComponent: RelationalDatabaseComponent {
 
-    public let config: ServiceConfig
+    public let config: ComponentConfig
     let pool: EventLoopGroupConnectionPool<MySQLConnectionSource>
 
     subscript<T>(
-        dynamicMember keyPath: KeyPath<MySQLRelationalDatabaseServiceContext, T>
+        dynamicMember keyPath: KeyPath<MySQLRelationalDatabaseComponentContext, T>
     ) -> T {
-        let context = config.context as! MySQLRelationalDatabaseServiceContext
+        let context = config.context as! MySQLRelationalDatabaseComponentContext
         return context[keyPath: keyPath]
     }
 
     init(
-        config: ServiceConfig,
+        config: ComponentConfig,
         pool: EventLoopGroupConnectionPool<MySQLConnectionSource>
     ) {
         self.config = config

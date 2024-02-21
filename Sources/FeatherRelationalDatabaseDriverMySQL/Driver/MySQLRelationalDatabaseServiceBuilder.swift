@@ -1,20 +1,20 @@
 //
 //  SQLDatabaseDriver.swift
-//  FeatherServiceTests
+//  FeatherComponentTests
 //
 //  Created by Tibor Bodecs on 18/11/2023.
 //
 
-import FeatherService
+import FeatherComponent
 import AsyncKit
 import MySQLKit
 
-struct MySQLRelationalDatabaseServiceBuilder: ServiceBuilder {
+struct MySQLRelationalDatabaseComponentBuilder: ComponentBuilder {
 
-    let context: MySQLRelationalDatabaseServiceContext
+    let context: MySQLRelationalDatabaseComponentContext
     let pool: EventLoopGroupConnectionPool<MySQLConnectionSource>
 
-    init(context: MySQLRelationalDatabaseServiceContext) {
+    init(context: MySQLRelationalDatabaseComponentContext) {
         self.context = context
 
         self.pool = EventLoopGroupConnectionPool(
@@ -23,8 +23,8 @@ struct MySQLRelationalDatabaseServiceBuilder: ServiceBuilder {
         )
     }
 
-    func build(using config: ServiceConfig) throws -> Service {
-        MySQLRelationalDatabaseService(config: config, pool: pool)
+    func build(using config: ComponentConfig) throws -> Component {
+        MySQLRelationalDatabaseComponent(config: config, pool: pool)
     }
 
     func shutdown() throws {

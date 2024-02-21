@@ -1,14 +1,14 @@
 //
 //  SQLDatabaseContext.swift
-//  FeatherServiceTests
+//  FeatherComponentTests
 //
 //  Created by Tibor Bodecs on 18/11/2023.
 //
 
-import FeatherService
+import FeatherComponent
 @preconcurrency import MySQLKit
 
-public struct MySQLRelationalDatabaseServiceContext: ServiceContext {
+public struct MySQLRelationalDatabaseComponentContext: ComponentContext {
 
     let eventLoopGroup: EventLoopGroup
     let connectionSource: MySQLConnectionSource
@@ -21,7 +21,7 @@ public struct MySQLRelationalDatabaseServiceContext: ServiceContext {
         self.connectionSource = connectionSource
     }
 
-    public func make() throws -> ServiceBuilder {
-        MySQLRelationalDatabaseServiceBuilder(context: self)
+    public func make() throws -> ComponentBuilder {
+        MySQLRelationalDatabaseComponentBuilder(context: self)
     }
 }
