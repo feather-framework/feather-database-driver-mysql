@@ -7,7 +7,7 @@
 
 import NIO
 import XCTest
-import FeatherService
+import FeatherComponent
 import FeatherRelationalDatabase
 import FeatherRelationalDatabaseDriverMySQL
 import MySQLKit
@@ -32,7 +32,7 @@ final class FeatherRelationalDatabaseDriverMySQLTests: XCTestCase {
 
     func testExample() async throws {
         do {
-            let registry = ServiceRegistry()
+            let registry = ComponentRegistry()
 
             let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
             let threadPool = NIOThreadPool(numberOfThreads: 1)
@@ -51,15 +51,15 @@ final class FeatherRelationalDatabaseDriverMySQLTests: XCTestCase {
             )
 
             try await registry.addRelationalDatabase(
-                MySQLRelationalDatabaseServiceContext(
+                MySQLRelationalDatabaseComponentContext(
                     eventLoopGroup: eventLoopGroup,
                     connectionSource: connectionSource
                 )
             )
 
             try await registry.run()
-            let dbService = try await registry.relationalDatabase()
-            let db = try await dbService.connection()
+            let dbComponent = try await registry.relationalDatabase()
+            let db = try await dbComponent.connection()
 
             do {
 

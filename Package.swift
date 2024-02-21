@@ -14,7 +14,7 @@ let package = Package(
         .library(name: "FeatherRelationalDatabaseDriverMySQL", targets: ["FeatherRelationalDatabaseDriverMySQL"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/feather-framework/feather-relational-database", .upToNextMinor(from: "0.1.1")),
+        .package(url: "https://github.com/feather-framework/feather-relational-database", .upToNextMinor(from: "0.2.0")),
         .package(url: "https://github.com/vapor/mysql-kit", from: "4.7.0"),
     ],
     targets: [
