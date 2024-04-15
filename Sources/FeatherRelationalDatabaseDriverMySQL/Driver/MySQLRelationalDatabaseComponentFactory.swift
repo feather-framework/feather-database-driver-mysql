@@ -13,10 +13,6 @@ struct MySQLRelationalDatabaseComponentFactory: ComponentFactory {
 
     let context: MySQLRelationalDatabaseComponentContext
 
-    init(context: MySQLRelationalDatabaseComponentContext) {
-        self.context = context
-    }
-
     func build(using config: ComponentConfig) throws -> Component {
         MySQLRelationalDatabaseComponent(config: config)
     }
