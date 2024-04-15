@@ -27,6 +27,11 @@ jobs:
     #     restore-keys: ${{ runner.os }}-spm-
     
     - name: Test
+      env:
+        MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+        MYSQL_USER: ${{ secrets.MYSQL_USER }}
+        MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
+        MYSQL_DB: ${{ secrets.MYSQL_DB }}
       run: swift test --parallel --enable-code-coverage
   
   linux-tests:
@@ -51,4 +56,9 @@ jobs:
     #     restore-keys: ${{ runner.os }}-spm-
     
     - name: Test
+      env:
+        MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+        MYSQL_USER: ${{ secrets.MYSQL_USER }}
+        MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
+        MYSQL_DB: ${{ secrets.MYSQL_DB }}
       run: swift test --parallel --enable-code-coverage
