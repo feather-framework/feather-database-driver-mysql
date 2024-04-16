@@ -60,4 +60,9 @@ jobs:
       uses: actions/checkout@v4
     
     - name: Test
+      env:
+        MYSQL_HOST: localhost
+        MYSQL_USER: test_username
+        MYSQL_PASS: test_password
+        MYSQL_DB: test_database
       run: swift test --parallel --enable-code-coverage
