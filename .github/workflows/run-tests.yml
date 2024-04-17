@@ -62,6 +62,8 @@ jobs:
           MYSQL_PASSWORD: test_password
           MYSQL_HOST: 127.0.0.1
           # MYSQL_ALLOW_EMPTY_PASSWORD: true
+        ports:
+            - '8888:3306'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     
@@ -74,6 +76,4 @@ jobs:
         MYSQL_USER: test_user
         MYSQL_PASS: test_password
         MYSQL_DB: test_database
-      ports:
-        - 8080:8080
       run: swift test --parallel --enable-code-coverage
