@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
     - main
-    
+
 jobs:
   
   # macOS-tests:
@@ -57,12 +57,11 @@ jobs:
           MYSQL_HOST: 127.0.0.1
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-    
     - name: Checkout
       uses: actions/checkout@v4
     
-    - name: Wait for MySQL to initialize
-      run: sleep 15
+    # - name: Wait for MySQL to initialize
+    #   run: sleep 15
 
     - name: Test
       env:
