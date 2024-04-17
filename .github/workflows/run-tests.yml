@@ -12,27 +12,27 @@ on:
 
 jobs:
   
-  macOS-tests:
-    runs-on: self-hosted
-    steps:
+  # macOS-tests:
+  #   runs-on: self-hosted
+  #   steps:
     
-    - name: Checkout
-      uses: actions/checkout@v4
+  #   - name: Checkout
+  #     uses: actions/checkout@v4
     
-    # - name: Cache
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: server/.build
-    #     key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
-    #     restore-keys: ${{ runner.os }}-spm-
+  #   # - name: Cache
+  #   #   uses: actions/cache@v3
+  #   #   with:
+  #   #     path: server/.build
+  #   #     key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+  #   #     restore-keys: ${{ runner.os }}-spm-
     
-    - name: Test
-      env:
-        MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
-        MYSQL_USER: ${{ secrets.MYSQL_USER }}
-        MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
-        MYSQL_DB: ${{ secrets.MYSQL_DB }}
-      run: swift test --parallel --enable-code-coverage
+  #   - name: Test
+  #     env:
+  #       MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+  #       MYSQL_USER: ${{ secrets.MYSQL_USER }}
+  #       MYSQL_PASS: ${{ secrets.MYSQL_PASS }}
+  #       MYSQL_DB: ${{ secrets.MYSQL_DB }}
+  #     run: swift test --parallel --enable-code-coverage
   
   linux-tests:
     runs-on: ubuntu-latest
