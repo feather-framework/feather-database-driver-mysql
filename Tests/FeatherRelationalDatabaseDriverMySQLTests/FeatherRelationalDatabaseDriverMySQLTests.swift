@@ -37,15 +37,15 @@ final class FeatherRelationalDatabaseDriverMySQLTests: XCTestCase {
         let threadPool = NIOThreadPool(numberOfThreads: 1)
         threadPool.start()
 
+        var config = TLSConfiguration.makeClientConfiguration()
+        config.certificateVerification = .none
+
         let configuration = MySQLConfiguration(
             hostname: host,
             username: user,
             password: pass,
             database: db,
-            tlsConfiguration: .makeClientConfiguration()
-//            tlsConfiguration: .forClient(
-//                certificateVerification: .none
-//            )
+            tlsConfiguration: config
         )
         let connectionSource = MySQLConnectionSource(
             configuration: configuration
