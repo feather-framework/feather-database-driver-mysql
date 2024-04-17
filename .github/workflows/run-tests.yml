@@ -11,6 +11,7 @@ on:
     - main
 env:
   MYSQL_DATABASE: 'test_database'
+  MYSQL_ROOT_PASSWORD: 'test_password'
 
 jobs:
   
