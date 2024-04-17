@@ -73,7 +73,7 @@ jobs:
 
     - name: Test
       env:
-        MYSQL_HOST: 127.0.0.1
+        MYSQL_HOST: mysql
         MYSQL_USER: test_user
         MYSQL_PASS: test_password
         MYSQL_DB: test_database
