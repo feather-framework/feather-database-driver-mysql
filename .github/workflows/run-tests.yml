@@ -53,9 +53,8 @@ jobs:
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_password
         run: |
-          brew services stop mysql
-          brew uninstall mysql
-          rm -f /tmp/mysql.sock.lock
+          # brew services stop mysql
+          # brew uninstall mysql
           brew install mysql && brew link --force mysql
           brew services start mysql
           until echo | mysql -u root; do sleep 1; done
