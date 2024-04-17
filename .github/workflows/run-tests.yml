@@ -56,6 +56,7 @@ jobs:
           brew services stop mysql
           brew uninstall mysql
           brew install mysql && brew link --force mysql
+          mysqld
           brew services start mysql
           until echo | mysql -u root; do sleep 1; done
           mysql -u root --batch <<-SQL
