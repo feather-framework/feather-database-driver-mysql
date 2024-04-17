@@ -42,7 +42,10 @@ final class FeatherRelationalDatabaseDriverMySQLTests: XCTestCase {
             username: user,
             password: pass,
             database: db,
-            tlsConfiguration: .clientDefault
+            tlsConfiguration: .makeClientConfiguration()
+//            tlsConfiguration: .forClient(
+//                certificateVerification: .none
+//            )
         )
         let connectionSource = MySQLConnectionSource(
             configuration: configuration
