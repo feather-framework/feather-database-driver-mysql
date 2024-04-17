@@ -9,9 +9,12 @@ on:
   pull_request:
     branches:
     - main
-# env:
-#   MYSQL_DATABASE: 'test_database'
-#   MYSQL_ROOT_PASSWORD: 'test_password'
+  env:
+    MYSQL_ROOT_PASSWORD: test_password
+    MYSQL_DATABASE: test_database
+    MYSQL_USER: test_username
+    MYSQL_PASSWORD: test_password
+    MYSQL_HOST: 127.0.0.1
 
 jobs:
   
