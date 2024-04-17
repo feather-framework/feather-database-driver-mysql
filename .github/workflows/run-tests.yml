@@ -46,7 +46,7 @@ jobs:
   macOS-tests:
     runs-on: self-hosted
     steps:
-      - name: Install MySQL, setup DB and auth, and wait for server start
+      - name: Setup MySQL DB
         shell: bash
         env:
           MYSQL_DATABASE: test_database
