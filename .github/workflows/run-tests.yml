@@ -61,7 +61,6 @@ jobs:
               CREATE DATABASE ${MYSQL_DATABASE};
               GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO ${MYSQL_USER}@localhost;
           SQL
-        timeout-minutes: 5
       - name: Checkout
         uses: actions/checkout@v4
       - name: Test
