@@ -9,6 +9,8 @@ on:
   pull_request:
     branches:
     - main
+env:
+  MYSQL_DATABASE: 'test_database'
 
 jobs:
   
@@ -55,6 +57,7 @@ jobs:
         #   MYSQL_PASS: test_password
         #   MYSQL_DB: test_database
         env: { MYSQL_ALLOW_EMPTY_PASSWORD: true, MYSQL_HOST: 127.0.0.1, MYSQL_USER: test_username, MYSQL_PASS: test_password, MYSQL_DB: test_database }
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     
     - name: Checkout
