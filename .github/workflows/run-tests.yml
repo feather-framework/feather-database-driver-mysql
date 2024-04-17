@@ -9,9 +9,9 @@ on:
   pull_request:
     branches:
     - main
-env:
-  MYSQL_DATABASE: 'test_database'
-  MYSQL_ROOT_PASSWORD: 'test_password'
+# env:
+#   MYSQL_DATABASE: 'test_database'
+#   MYSQL_ROOT_PASSWORD: 'test_password'
 
 jobs:
   
@@ -40,6 +40,7 @@ jobs:
   linux-tests:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         swift:
           - 'swift:5.9'
@@ -57,7 +58,13 @@ jobs:
         #   MYSQL_USER: test_username
         #   MYSQL_PASS: test_password
         #   MYSQL_DB: test_database
-        env: { MYSQL_ALLOW_EMPTY_PASSWORD: true, MYSQL_HOST: 127.0.0.1, MYSQL_USER: test_username, MYSQL_PASS: test_password, MYSQL_DATABASE: test_database, MYSQL_ROOT_PASSWORD: test_password }
+        env:
+          MYSQL_ROOT_PASSWORD: test_password
+          MYSQL_DATABASE: test_database
+          MYSQL_USER: test_username
+          MYSQL_PASSWORD: test_password
+          MYSQL_HOST: 127.0.0.1
+          # MYSQL_ALLOW_EMPTY_PASSWORD: true
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     
