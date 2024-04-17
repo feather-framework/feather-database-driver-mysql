@@ -54,7 +54,7 @@ jobs:
         #   MYSQL_USER: test_username
         #   MYSQL_PASS: test_password
         #   MYSQL_DB: test_database
-        env: { MYSQL_ALLOW_EMPTY_PASSWORD: true, MYSQL_HOST: 127.0.0.1, MYSQL_USER: test_username, MYSQL_PASSWORD: test_password, MYSQL_DATABASE: test_database }
+        env: { MYSQL_ALLOW_EMPTY_PASSWORD: true, MYSQL_HOST: 127.0.0.1, MYSQL_USER: test_username, MYSQL_PASS: test_password, MYSQL_DB: test_database }
     steps:
     
     - name: Checkout
