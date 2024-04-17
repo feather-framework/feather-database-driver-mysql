@@ -74,4 +74,6 @@ jobs:
         MYSQL_USER: test_user
         MYSQL_PASS: test_password
         MYSQL_DB: test_database
+      ports:
+        - 8080:8080
       run: swift test --parallel --enable-code-coverage
