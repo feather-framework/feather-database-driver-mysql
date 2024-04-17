@@ -9,13 +9,7 @@ on:
   pull_request:
     branches:
     - main
-env:
-  MYSQL_ROOT_PASSWORD: test_password
-  MYSQL_DATABASE: test_database
-  MYSQL_USER: test_user
-  MYSQL_PASSWORD: test_password
-  MYSQL_HOST: 127.0.0.1
-
+    
 jobs:
   
   # macOS-tests:
