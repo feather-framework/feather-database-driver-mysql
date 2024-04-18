@@ -49,9 +49,9 @@ jobs:
       - name: Setup MySQL DB
         shell: bash
         env:
-          MYSQL_DATABASE: test_database
-          MYSQL_USER: test_user
-          MYSQL_PASSWORD: test_password
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
         run: |
           brew install mysql && brew link --force mysql
           brew services start mysql
@@ -66,8 +66,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Test
         env:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_DB: test_database
-          MYSQL_USER: test_user
-          MYSQL_PASS: test_password
+          MYSQL_HOST: ${{ secrets.MYSQL_HOST }}
+          MYSQL_DB: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_USER: ${{ secrets.MYSQL_USER }}
+          MYSQL_PASS: ${{ secrets.MYSQL_PASSWORD }}
         run: swift test --parallel --enable-code-coverage
