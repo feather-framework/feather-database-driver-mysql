@@ -54,7 +54,7 @@ jobs:
           MYSQL_PASSWORD: test_password
         run: |
           brew install mysql && brew link --force mysql
-          brew services restart mysql
+          brew services start mysql
           until echo | mysql -u root; do sleep 1; done
           mysql -u root --batch <<-SQL
               CREATE USER ${MYSQL_USER}@localhost IDENTIFIED BY '${MYSQL_PASSWORD}';
