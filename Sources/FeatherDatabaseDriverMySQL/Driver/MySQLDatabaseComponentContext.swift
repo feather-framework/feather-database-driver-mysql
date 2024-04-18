@@ -8,7 +8,7 @@
 import FeatherComponent
 @preconcurrency import MySQLKit
 
-public struct MySQLRelationalDatabaseComponentContext: ComponentContext {
+public struct MySQLDatabaseComponentContext: ComponentContext {
 
     let pool: EventLoopGroupConnectionPool<MySQLConnectionSource>
 
@@ -19,6 +19,6 @@ public struct MySQLRelationalDatabaseComponentContext: ComponentContext {
     }
 
     public func make() throws -> ComponentFactory {
-        MySQLRelationalDatabaseComponentFactory(context: self)
+        MySQLDatabaseComponentFactory(context: self)
     }
 }
