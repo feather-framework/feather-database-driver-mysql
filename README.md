@@ -1,6 +1,6 @@
-# Feather SQL Database
+# Feather MySQL Database
 
-An abstract sql-database component for Feather CMS.
+An abstract mysql-database component for Feather CMS.
 
 ## Getting started
 
@@ -13,16 +13,16 @@ Use at your own risk.
 To add a dependency on the package, declare it in your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/feather-framework/feather-sql-database.git", .upToNextMinor(from: "0.2.0")),
+.package(url: "https://github.com/feather-framework/feather-database-driver-mysql", .upToNextMinor(from: "0.4.0")),
 ```
 
-and to your application target, add `FeatherSQLDatabase` to your dependencies:
+and to your application target, add `FeatherDatabaseDriverMySQL` to your dependencies:
 
 ```swift
-.product(name: "FeatherSQLDatabase", package: "feather-sql-database")
+.product(name: "FeatherDatabaseDriverMySQL", package: "feather-database-driver-mysql")
 ```
 
-Example `Package.swift` file with `FeatherSQLDatabase` as a dependency:
+Example `Package.swift` file with `FeatherDatabaseDriverMySQL` as a dependency:
 
 ```swift
 // swift-tools-version:5.9
@@ -31,11 +31,11 @@ import PackageDescription
 let package = Package(
     name: "my-application",
     dependencies: [
-        .package(url: "https://github.com/feather-framework/feather-sql-database.git", .upToNextMinor(from: "0.2.0")),
+        .package(url: "https://github.com/feather-framework/feather-database-driver-mysql", .upToNextMinor(from: "0.4.0")),
     ],
     targets: [
         .target(name: "MyApplication", dependencies: [
-            .product(name: "FeatherSQLDatabase", package: "feather-sql-database")
+            .product(name: "FeatherDatabaseDriverMySQL", package: "feather-database-driver-mysql")
         ]),
         .testTarget(name: "MyApplicationTests", dependencies: [
             .target(name: "MyApplication"),
