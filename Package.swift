@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "feather-relational-database-driver-mysql",
+    name: "feather-database-driver-mysql",
     platforms: [
         .macOS(.v13),
         .iOS(.v16),
@@ -11,24 +11,25 @@ let package = Package(
         .visionOS(.v1),
     ],
     products: [
-        .library(name: "FeatherRelationalDatabaseDriverMySQL", targets: ["FeatherRelationalDatabaseDriverMySQL"]),
+        .library(name: "FeatherDatabaseDriverMySQL", targets: ["FeatherDatabaseDriverMySQL"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/feather-framework/feather-relational-database", .upToNextMinor(from: "0.3.0")),
+        .package(url: "https://github.com/feather-framework/feather-database", .upToNextMinor(from: "0.4.0")),
         .package(url: "https://github.com/vapor/mysql-kit", from: "4.7.0"),
     ],
     targets: [
         .target(
-            name: "FeatherRelationalDatabaseDriverMySQL",
+            name: "FeatherDatabaseDriverMySQL",
             dependencies: [
-                .product(name: "FeatherRelationalDatabase", package: "feather-relational-database"),
+                .product(name: "FeatherDatabase", package: "feather-database"),
                 .product(name: "MySQLKit", package: "mysql-kit"),
             ]
         ),
         .testTarget(
-            name: "FeatherRelationalDatabaseDriverMySQLTests",
+            name: "FeatherDatabaseDriverMySQLTests",
             dependencies: [
-                .target(name: "FeatherRelationalDatabaseDriverMySQL"),
+                .product(name: "FeatherDatabaseTesting", package: "feather-database"),
+                .target(name: "FeatherDatabaseDriverMySQL"),
             ]
         ),
     ]

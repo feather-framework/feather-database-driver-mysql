@@ -9,11 +9,11 @@ import AsyncKit
 import FeatherComponent
 import MySQLKit
 
-struct MySQLRelationalDatabaseComponentFactory: ComponentFactory {
+struct MySQLDatabaseComponentFactory: ComponentFactory {
 
-    let context: MySQLRelationalDatabaseComponentContext
+    let context: MySQLDatabaseComponentContext
 
     func build(using config: ComponentConfig) throws -> Component {
-        MySQLRelationalDatabaseComponent(config: config)
+        MySQLDatabaseComponent(config: config)
     }
 }
